@@ -1,7 +1,7 @@
 # 請把 gofanfan88-eng/xiaoya 改成你的 GitHub 帳號/儲存庫名稱
 backend:
   name: github
-  repo: gofanfan88-eng/xiaoya
+  repo: decor/xiaoya
   branch: main
 locale: zh-Hant
 media_folder: images
