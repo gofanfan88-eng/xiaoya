@@ -49,7 +49,7 @@ footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mute);font-si
 <script>
 const $=id=>document.getElementById(id);
 function el(t,txt,a){const e=document.createElement(t);if(txt)e.textContent=txt;if(a)Object.assign(e,a);return e}
-fetch('/site.json').then(r=>r.json()).then(d=>{
+fetch('site.json').then(r=>r.json()).then(d=>{
   $('logo-s').src=$('logo-l').src=d.logo;
   $('tagline').textContent=d.tagline;$('tagline-en').textContent=d.tagline_en;$('ptitle').textContent=d.products_title;
   (d.products||[]).forEach(p=>{const c=el('div');c.className='item';
