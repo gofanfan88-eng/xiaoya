@@ -1,7 +1,7 @@
-# 請把 YOUR-GITHUB-ACCOUNT/YOUR-REPO 改成你的 GitHub 帳號/儲存庫名稱
+# 請把 gofanfan88-eng/xiaoya 改成你的 GitHub 帳號/儲存庫名稱
 backend:
   name: github
-  repo: YOUR-GITHUB-ACCOUNT/YOUR-REPO
+  repo: gofanfan88-eng/xiaoya
   branch: main
 locale: zh-Hant
 media_folder: images
@@ -12,7 +12,7 @@ collections:
     files:
       - name: site
         label: 官網內容
-        file: content/site.json
+        file: site.json
         format: json
         fields:
           - {name: logo, label: 標誌圖片, widget: image}

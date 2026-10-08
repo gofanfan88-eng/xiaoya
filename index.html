@@ -1,4 +1,68 @@
 <!DOCTYPE html>
-<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex"><title>小雅家飾 網站後台</title></head>
-<body><script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script></body></html>
+<html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>小雅家飾概念 Xiaoya.furniture</title>
+<link rel="icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf8f4;--ink:#2b2a28;--mute:#6f6b64;--line:#e4dfd5;--sun:#f5a800;--panel:#f1ede4}
+@media (prefers-color-scheme:dark){:root{--bg:#1f1e1c;--ink:#f0ece3;--mute:#a8a299;--line:#3a3834;--panel:#2a2927}}
+html{scroll-behavior:smooth}*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-weight:300;line-height:1.8}
+a{color:inherit}:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.brand{font-family:"Noto Serif TC",serif;font-weight:600;font-size:18px;text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand img{width:32px;height:32px}
+nav a{margin-left:24px;text-decoration:none;font-size:15px;color:var(--mute)}nav a:hover{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center;padding:72px 0}
+h1{font-family:"Noto Serif TC",serif;font-weight:500;font-size:clamp(34px,5.4vw,56px);line-height:1.35;margin:0 0 16px;letter-spacing:.04em}
+.en{font-size:17px;color:var(--mute);margin:0 0 32px}
+.btn{display:inline-block;background:var(--sun);color:#2b2a28;padding:12px 28px;text-decoration:none;font-weight:500;border-radius:2px}
+.logo{background:var(--sun);aspect-ratio:1;display:flex;align-items:center;justify-content:center}.logo img{width:78%;height:auto}
+section{padding:64px 0;border-top:1px solid var(--line)}
+h2{font-family:"Noto Serif TC",serif;font-weight:500;font-size:28px;margin:0 0 32px;letter-spacing:.06em}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.item{background:var(--panel);border-left:3px solid var(--sun)}
+.item img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.item div{padding:24px 22px;min-height:150px}
+.item h3{font-family:"Noto Serif TC",serif;font-weight:500;font-size:22px;margin:0 0 8px}
+.item p{margin:0;color:var(--mute);font-size:14px;white-space:pre-line}
+.about{max-width:620px;color:var(--mute);white-space:pre-line}
+dl{display:grid;grid-template-columns:auto 1fr;gap:12px 28px;margin:0 0 28px}dt{color:var(--mute)}dd{margin:0}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mute);font-size:13px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:36px;padding:40px 0}.logo{order:-1;max-width:240px}nav a{margin-left:14px}.brand span{display:none}}
+</style></head><body>
+<header><div class="wrap"><a class="brand" href="#top"><img id="logo-s" alt=""><span>小雅家飾概念</span></a>
+<nav><a href="#products">產品</a><a href="#about">關於我們</a><a href="#contact">聯絡我們</a></nav></div></header>
+<main id="top">
+<div class="wrap hero"><div><h1 id="tagline"></h1><p class="en" id="tagline-en"></p><a class="btn" href="#contact">預約諮詢</a></div>
+<div class="logo"><img id="logo-l" alt="小雅家飾 標誌"></div></div>
+<section id="products"><div class="wrap"><h2 id="ptitle"></h2><div class="grid" id="grid"></div></div></section>
+<section id="about"><div class="wrap"><h2>關於小雅</h2><p class="about" id="about-t"></p></div></section>
+<section id="contact"><div class="wrap"><h2>聯絡我們</h2><dl id="info"></dl>
+<a class="btn" id="map" target="_blank" rel="noopener">在地圖上查看</a><p id="fb"></p></div></section>
+</main>
+<footer><div class="wrap">© 小雅家飾概念 Xiaoya.furniture</div></footer>
+<script>
+const $=id=>document.getElementById(id);
+function el(t,txt,a){const e=document.createElement(t);if(txt)e.textContent=txt;if(a)Object.assign(e,a);return e}
+fetch('/site.json').then(r=>r.json()).then(d=>{
+  $('logo-s').src=$('logo-l').src=d.logo;
+  $('tagline').textContent=d.tagline;$('tagline-en').textContent=d.tagline_en;$('ptitle').textContent=d.products_title;
+  (d.products||[]).forEach(p=>{const c=el('div');c.className='item';
+    if(p.image)c.append(el('img','',{src:p.image,alt:p.name,loading:'lazy'}));
+    const b=el('div');b.append(el('h3',p.name),el('p',p.desc));c.append(b);$('grid').append(c)});
+  $('about-t').textContent=d.about;
+  const add=(k,v)=>{if(v){$('info').append(el('dt',k),v)}};
+  const dd=n=>{const e=el('dd');e.append(n);return e};
+  add('地址',dd(d.address));
+  if(d.phone)add('電話',dd(el('a',d.phone,{href:'tel:'+d.phone.replace(/[^\d+]/g,'').replace(/^0/,'+886')})));
+  if(d.email)add('E-mail',dd(el('a',d.email,{href:'mailto:'+d.email})));
+  add('營業時間',dd(d.hours));
+  $('map').href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(d.address);
+  if(d.facebook)$('fb').append(el('a','Facebook 專頁',{href:d.facebook,target:'_blank',rel:'noopener'}));
+}).catch(()=>{$('tagline').textContent='小雅家飾概念'});
+</script></body></html>
