@@ -1,0 +1,18 @@
+{
+  "logo": "/images/logo.png",
+  "tagline": "在空間找到美麗的語言",
+  "tagline_en": "Find the beautiful language in space",
+  "products_title": "居家裝飾",
+  "products": [
+    {"name": "窗簾", "desc": "為光線與隱私,選一塊合適的布。"},
+    {"name": "壁紙", "desc": "牆面的質感與色彩,決定空間的氣氛。"},
+    {"name": "地板", "desc": "從腳下開始,打造溫潤耐用的基底。"},
+    {"name": "皮革", "desc": "沙發、椅面與牆面的皮革選擇。"}
+  ],
+  "about": "小雅家飾概念位於台中市西區,提供窗簾、壁紙、地板與皮革等居家裝飾。(公司簡介與品牌故事,請到後台補上。)",
+  "address": "台中市西區大忠街38號",
+  "phone": "04 2475 1258",
+  "email": "xiaoyadecor38@gmail.com",
+  "hours": "",
+  "facebook": "https://www.facebook.com/Xiaoya.furniture/"
+}

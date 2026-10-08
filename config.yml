@@ -1,0 +1,35 @@
+# 請把 YOUR-GITHUB-ACCOUNT/YOUR-REPO 改成你的 GitHub 帳號/儲存庫名稱
+backend:
+  name: github
+  repo: YOUR-GITHUB-ACCOUNT/YOUR-REPO
+  branch: main
+locale: zh-Hant
+media_folder: images
+public_folder: /images
+collections:
+  - name: pages
+    label: 網站內容
+    files:
+      - name: site
+        label: 官網內容
+        file: content/site.json
+        format: json
+        fields:
+          - {name: logo, label: 標誌圖片, widget: image}
+          - {name: tagline, label: 主標語, widget: string}
+          - {name: tagline_en, label: 英文標語, widget: string}
+          - {name: products_title, label: 產品區標題, widget: string}
+          - name: products
+            label: 產品列表
+            label_singular: 產品
+            widget: list
+            fields:
+              - {name: name, label: 名稱, widget: string}
+              - {name: desc, label: 說明, widget: text}
+              - {name: image, label: 照片, widget: image, required: false}
+          - {name: about, label: 關於我們, widget: text}
+          - {name: address, label: 地址, widget: string}
+          - {name: phone, label: 電話, widget: string}
+          - {name: email, label: E-mail, widget: string}
+          - {name: hours, label: 營業時間, widget: string, required: false}
+          - {name: facebook, label: Facebook 連結, widget: string, required: false}
