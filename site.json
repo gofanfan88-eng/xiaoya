@@ -2,7 +2,7 @@
   "logo": "/images/00008.jpg",
   "tagline": "在空間找到美麗的語言",
   "tagline_en": "Find the beautiful language in space",
-  "products_title": "居家裝飾 I 軟裝設計",
+  "products_title": "居家裝飾 / 軟裝設計",
   "products": [
     {
       "name": "窗簾",
@@ -27,7 +27,7 @@
       ]
     },
     {
-      "name": "地板 I 地磚 I 地毯",
+      "name": "地板／地磚 ／ 地毯",
       "desc": "從腳下開始，打造溫潤耐用的基底。",
       "image": "/images/地板.jpg",
       "gallery": [
