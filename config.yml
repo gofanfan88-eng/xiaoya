@@ -1,4 +1,3 @@
-# 請把 gofanfan88-eng/xiaoya 改成你的 GitHub 帳號/儲存庫名稱
 backend:
   name: github
   repo: xiaoya-decor/xiaoya
@@ -23,11 +22,37 @@ collections:
             label: 產品列表
             label_singular: 產品
             widget: list
+            summary: "{{fields.name}}"
             fields:
               - {name: name, label: 名稱, widget: string}
               - {name: desc, label: 說明, widget: text}
-              - {name: image, label: 照片, widget: image, required: false}
-          - {name: about, label: 關於我們, widget: text}
+              - {name: image, label: 封面照片, widget: image, required: false}
+              - {name: gallery, label: 更多照片, widget: list, field: {name: photo, label: 照片, widget: image}, required: false}
+          - {name: projects_title, label: 作品案例標題, widget: string, required: false, hint: "例如:作品案例。沒有作品時整區不會顯示"}
+          - name: projects
+            label: 作品案例
+            label_singular: 案例
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - {name: title, label: 標題, widget: string}
+              - {name: desc, label: 說明, widget: text, required: false}
+              - {name: image, label: 封面照片, widget: image}
+              - {name: gallery, label: 更多照片, widget: list, field: {name: photo, label: 照片, widget: image}, required: false}
+          - {name: news_title, label: 最新消息標題, widget: string, required: false, hint: "例如:最新消息。沒有消息時整區不會顯示"}
+          - name: news
+            label: 最新消息
+            label_singular: 消息
+            widget: list
+            required: false
+            summary: "{{fields.date}} {{fields.title}}"
+            fields:
+              - {name: date, label: 日期, widget: string, hint: "例如:2026/10/15"}
+              - {name: title, label: 標題, widget: string}
+              - {name: body, label: 內容, widget: text, required: false}
+          - {name: about, label: 關於我們(空一行即分段), widget: text}
+          - {name: about_image, label: 關於我們照片, widget: image, required: false}
           - {name: address, label: 地址, widget: string}
           - {name: phone, label: 電話, widget: string}
           - {name: email, label: E-mail, widget: string}

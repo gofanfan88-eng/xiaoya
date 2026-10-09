@@ -2,21 +2,21 @@
 <html lang="zh-Hant"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>小雅家飾概念 Xiaoya.furniture</title>
-<link rel="icon" href="/logo.png">
+<link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#faf8f4;--ink:#2b2a28;--mute:#6f6b64;--line:#e4dfd5;--sun:#f5a800;--panel:#f1ede4}
 @media (prefers-color-scheme:dark){:root{--bg:#1f1e1c;--ink:#f0ece3;--mute:#a8a299;--line:#3a3834;--panel:#2a2927}}
-html{scroll-behavior:smooth}*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}*{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;font-weight:300;line-height:1.8}
 a{color:inherit}:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
 header{border-bottom:1px solid var(--line)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+header .wrap{display:flex;justify-content:space-between;align-items:center;min-height:64px;flex-wrap:wrap;gap:4px 16px}
 .brand{font-family:"Noto Serif TC",serif;font-weight:600;font-size:18px;text-decoration:none;display:flex;align-items:center;gap:10px}
 .brand img{width:32px;height:32px}
-nav a{margin-left:24px;text-decoration:none;font-size:15px;color:var(--mute)}nav a:hover{color:var(--ink)}
+nav a{margin-left:22px;text-decoration:none;font-size:15px;color:var(--mute)}nav a:hover{color:var(--ink)}
 .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center;padding:72px 0}
 h1{font-family:"Noto Serif TC",serif;font-weight:500;font-size:clamp(34px,5.4vw,56px);line-height:1.35;margin:0 0 16px;letter-spacing:.04em}
 .en{font-size:17px;color:var(--mute);margin:0 0 32px}
@@ -24,40 +24,84 @@ h1{font-family:"Noto Serif TC",serif;font-weight:500;font-size:clamp(34px,5.4vw,
 .logo{background:var(--sun);aspect-ratio:1;display:flex;align-items:center;justify-content:center}.logo img{width:78%;height:auto}
 section{padding:64px 0;border-top:1px solid var(--line)}
 h2{font-family:"Noto Serif TC",serif;font-weight:500;font-size:28px;margin:0 0 32px;letter-spacing:.06em}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
-.item{background:var(--panel);border-left:3px solid var(--sun)}
-.item img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
-.item div{padding:24px 22px;min-height:150px}
-.item h3{font-family:"Noto Serif TC",serif;font-weight:500;font-size:22px;margin:0 0 8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.item{background:var(--panel);border-left:3px solid var(--sun);display:flex;flex-direction:column}
+.ph{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.ph img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.more{position:absolute;right:8px;bottom:8px;background:rgba(0,0,0,.65);color:#fff;font-size:12px;padding:2px 10px;border-radius:12px}
+.item .tx{padding:22px;min-height:120px}
+.item h3{font-family:"Noto Serif TC",serif;font-weight:500;font-size:21px;margin:0 0 6px}
 .item p{margin:0;color:var(--mute);font-size:14px;white-space:pre-line}
-.about{max-width:620px;color:var(--mute);white-space:pre-line}
+.news{list-style:none;margin:0;padding:0;max-width:720px}
+.news li{padding:20px 0;border-bottom:1px solid var(--line)}
+.news time{color:var(--mute);font-size:13px}.news h3{margin:2px 0 4px;font-family:"Noto Serif TC",serif;font-weight:500;font-size:19px}
+.news p{margin:0;color:var(--mute);white-space:pre-line}
+.abt{display:grid;grid-template-columns:1fr;gap:36px;align-items:start}
+.abt.has{grid-template-columns:1.2fr 1fr}
+.abt p{margin:0 0 1em;color:var(--mute)}
+.abt img{width:100%;display:block}
 dl{display:grid;grid-template-columns:auto 1fr;gap:12px 28px;margin:0 0 28px}dt{color:var(--mute)}dd{margin:0}
 footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mute);font-size:13px}
-@media(max-width:760px){.hero{grid-template-columns:1fr;gap:36px;padding:40px 0}.logo{order:-1;max-width:240px}nav a{margin-left:14px}.brand span{display:none}}
+dialog{border:0;padding:0;background:transparent;max-width:100vw;max-height:100vh;width:100vw;height:100vh}
+dialog::backdrop{background:rgba(0,0,0,.88)}
+.lb{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:20px}
+.lb img{max-width:100%;max-height:78vh;object-fit:contain}
+.lb p{color:#eee;margin:0;text-align:center;max-width:640px;font-size:14px}
+.lb button{position:absolute;background:rgba(255,255,255,.15);color:#fff;border:0;font-size:28px;width:48px;height:48px;border-radius:50%;cursor:pointer}
+.lb .x{top:16px;right:16px}.lb .pv{left:12px;top:50%}.lb .nx{right:12px;top:50%}
+@media(max-width:760px){.hero{grid-template-columns:1fr;gap:36px;padding:40px 0}.logo{order:-1;max-width:240px}.abt.has{grid-template-columns:1fr}nav a{margin:0 14px 0 0}.brand span{display:none}}
 </style></head><body>
-<header><div class="wrap"><a class="brand" href="#top"><img id="logo-s" alt=""><span>小雅家飾概念</span></a>
-<nav><a href="#products">產品</a><a href="#about">關於我們</a><a href="#contact">聯絡我們</a></nav></div></header>
+<header><div class="wrap"><a class="brand" href="#top"><img id="logo-s" alt=""><span>小雅家飾概念</span></a><nav id="nav"></nav></div></header>
 <main id="top">
 <div class="wrap hero"><div><h1 id="tagline"></h1><p class="en" id="tagline-en"></p><a class="btn" href="#contact">預約諮詢</a></div>
 <div class="logo"><img id="logo-l" alt="小雅家飾 標誌"></div></div>
 <section id="products"><div class="wrap"><h2 id="ptitle"></h2><div class="grid" id="grid"></div></div></section>
-<section id="about"><div class="wrap"><h2>關於小雅</h2><p class="about" id="about-t"></p></div></section>
+<section id="projects" hidden><div class="wrap"><h2 id="jtitle"></h2><div class="grid" id="jgrid"></div></div></section>
+<section id="news" hidden><div class="wrap"><h2 id="ntitle"></h2><ul class="news" id="nlist"></ul></div></section>
+<section id="about"><div class="wrap"><h2>關於小雅</h2><div class="abt" id="abt"><div id="about-t"></div></div></div></section>
 <section id="contact"><div class="wrap"><h2>聯絡我們</h2><dl id="info"></dl>
 <a class="btn" id="map" target="_blank" rel="noopener">在地圖上查看</a><p id="fb"></p></div></section>
 </main>
 <footer><div class="wrap">© 小雅家飾概念 Xiaoya.furniture</div></footer>
+<dialog id="lb"><div class="lb"><button class="x" aria-label="關閉">×</button><button class="pv" aria-label="上一張">‹</button><img id="lbi" alt=""><button class="nx" aria-label="下一張">›</button><p id="lbc"></p></div></dialog>
 <script>
 const $=id=>document.getElementById(id);
 function el(t,txt,a){const e=document.createElement(t);if(txt)e.textContent=txt;if(a)Object.assign(e,a);return e}
-fetch('site.json').then(r=>r.json()).then(d=>{
-  $('logo-s').src=$('logo-l').src=d.logo;
-  $('tagline').textContent=d.tagline;$('tagline-en').textContent=d.tagline_en;$('ptitle').textContent=d.products_title;
-  (d.products||[]).forEach(p=>{const c=el('div');c.className='item';
-    if(p.image)c.append(el('img','',{src:p.image,alt:p.name,loading:'lazy'}));
-    const b=el('div');b.append(el('h3',p.name),el('p',p.desc));c.append(b);$('grid').append(c)});
-  $('about-t').textContent=d.about;
-  const add=(k,v)=>{if(v){$('info').append(el('dt',k),v)}};
+const url=p=>encodeURI(String(p).replace(/^\/+/,''));
+let L=[],I=0;const dlg=$('lb');
+function show(){const it=L[I];$('lbi').src=it.src;$('lbi').alt=it.cap;$('lbc').textContent=it.cap||'';
+  dlg.querySelector('.pv').hidden=dlg.querySelector('.nx').hidden=L.length<2}
+function openLb(list,i){L=list;I=i;show();dlg.showModal()}
+function step(n){I=(I+n+L.length)%L.length;show()}
+dlg.querySelector('.x').onclick=()=>dlg.close();
+dlg.querySelector('.pv').onclick=()=>step(-1);dlg.querySelector('.nx').onclick=()=>step(1);
+dlg.addEventListener('click',e=>{if(e.target===dlg||e.target.classList.contains('lb'))dlg.close()});
+dlg.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1)});
+function card(host,it,title,desc){
+  const c=el('div');c.className='item';
+  const pics=[it.image,...(it.gallery||[])].filter(Boolean).map(p=>({src:url(p),cap:title}));
+  if(pics.length){const b=el('button','',{type:'button'});b.className='ph';b.setAttribute('aria-label','查看 '+title+' 照片');
+    b.append(el('img','',{src:pics[0].src,alt:title,loading:'lazy'}));
+    if(pics.length>1)b.append(el('span','共 '+pics.length+' 張',{className:'more'}));
+    b.onclick=()=>openLb(pics,0);c.append(b)}
+  const t=el('div');t.className='tx';t.append(el('h3',title));if(desc)t.append(el('p',desc));c.append(t);host.append(c)}
+fetch('site.json?'+Date.now()).then(r=>r.json()).then(d=>{
+  $('logo-s').src=$('logo-l').src=url(d.logo);
+  $('tagline').textContent=d.tagline;$('tagline-en').textContent=d.tagline_en;
+  const nav=[['products','產品']];
+  $('ptitle').textContent=d.products_title||'居家裝飾';
+  (d.products||[]).forEach(p=>card($('grid'),p,p.name,p.desc));
+  if((d.projects||[]).length){$('projects').hidden=false;$('jtitle').textContent=d.projects_title||'作品案例';
+    d.projects.forEach(p=>card($('jgrid'),p,p.title,p.desc));nav.push(['projects',d.projects_title||'作品案例'])}
+  if((d.news||[]).length){$('news').hidden=false;$('ntitle').textContent=d.news_title||'最新消息';
+    d.news.forEach(n=>{const li=el('li');li.append(el('time',n.date),el('h3',n.title));if(n.body)li.append(el('p',n.body));$('nlist').append(li)});
+    nav.push(['news',d.news_title||'最新消息'])}
+  nav.push(['about','關於我們'],['contact','聯絡我們']);
+  nav.forEach(([h,t])=>$('nav').append(el('a',t,{href:'#'+h})));
+  const box=$('about-t');(d.about||'').split(/\n\s*\n/).filter(s=>s.trim()).forEach(s=>box.append(el('p',s.trim())));
+  if(d.about_image){$('abt').classList.add('has');$('abt').append(el('img','',{src:url(d.about_image),alt:'小雅家飾',loading:'lazy'}))}
   const dd=n=>{const e=el('dd');e.append(n);return e};
+  const add=(k,v)=>{if(v){$('info').append(el('dt',k),v)}};
   add('地址',dd(d.address));
   if(d.phone)add('電話',dd(el('a',d.phone,{href:'tel:'+d.phone.replace(/[^\d+]/g,'').replace(/^0/,'+886')})));
   if(d.email)add('E-mail',dd(el('a',d.email,{href:'mailto:'+d.email})));
