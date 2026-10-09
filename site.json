@@ -8,19 +8,32 @@
       "name": "窗簾",
       "desc": "為光線與隱私，選一塊合適的家飾。",
       "image": "/images/00002.jpg",
-      "gallery": []
+      "gallery": [
+        "/images/00006.jpg",
+        "/images/00012.jpg",
+        "/images/00013.jpg",
+        "/images/00014.jpg",
+        "/images/00015.jpg"
+      ]
     },
     {
       "name": "壁紙",
       "desc": "牆面的質感與色彩，決定空間的氛圍。",
       "image": "/images/00003.jpg",
-      "gallery": []
+      "gallery": [
+        "/images/00009.jpg",
+        "/images/00010.jpg",
+        "/images/00011.jpg"
+      ]
     },
     {
       "name": "地板",
       "desc": "從腳下開始，打造溫潤耐用的基底。",
       "image": "/images/地板.jpg",
-      "gallery": []
+      "gallery": [
+        "/images/00019.jpg",
+        "/images/00016.jpg"
+      ]
     },
     {
       "name": "皮革",
